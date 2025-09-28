@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/internsroot-site/static/css/main.e9def861.css",
+    "main.js": "/internsroot-site/static/js/main.c9a574d0.js",
+    "static/js/787.32e3a5a8.chunk.js": "/internsroot-site/static/js/787.32e3a5a8.chunk.js",
+    "index.html": "/internsroot-site/index.html",
+    "main.e9def861.css.map": "/internsroot-site/static/css/main.e9def861.css.map",
+    "main.c9a574d0.js.map": "/internsroot-site/static/js/main.c9a574d0.js.map",
+    "787.32e3a5a8.chunk.js.map": "/internsroot-site/static/js/787.32e3a5a8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e9def861.css",
+    "static/js/main.c9a574d0.js"
+  ]
+}
