@@ -11,11 +11,15 @@ import Pricing from './Pricing';
 import Blog from './Blog';
 import Contact from './Contact';
 import Footer from './Footer';
+import ServiceModal from './ServiceModal';
+import PortfolioModal from './PortfolioModal';
+import QuickContactModal from './QuickContactModal';
+import { MessageCircle, CheckCircle } from 'lucide-react';
+
 
 
 const Page = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   // Contact form state
@@ -52,38 +56,6 @@ const Page = () => {
       setCurrentTestimonial((prev) => (prev + 1) % 3); // Replace 3 with testimonials.length
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
-
-  // Intersection Observer for section highlight
-  useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -70% 0px',
-      threshold: 0
-    };
-
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    const sections = ['home', 'services', 'portfolio', 'pricing', 'blog', 'contact'];
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => {
-      sections.forEach((id) => {
-        const el = document.getElementById(id);
-        if (el) observer.unobserve(el);
-      });
-    };
   }, []);
 
   // Validation
@@ -164,7 +136,6 @@ const Page = () => {
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setActiveSection(id);
   };
 
   const handleCTAClick = (action, data = null) => {
@@ -198,16 +169,45 @@ const Page = () => {
   return (
     <div>
       <Navigation handleCTAClick={handleCTAClick}/>
-      <Hero />
-      <Services />
-      <Portfolio />
-      <Testimonials />
+      <Hero handleCTAClick={handleCTAClick} />
+      <Services handleCTAClick={handleCTAClick} />
+      <Portfolio handleCTAClick={handleCTAClick} />
+      <Testimonials handleCTAClick={handleCTAClick} />
       <ProcessSection handleCTAClick={handleCTAClick} />
       <SEOSection handleCTAClick={handleCTAClick} />
       <Pricing handleCTAClick={handleCTAClick} />
       <Blog handleCTAClick={handleCTAClick} />
      <Contact handleCTAClick={handleCTAClick} />
      <Footer handleCTAClick={handleCTAClick} />
+
+    {/* Modals */}
+          <ServiceModal 
+            service={selectedService} 
+            isOpen={!!selectedService} 
+            onClose={() => setSelectedService(null)}
+            handleCTAClick={handleCTAClick}
+          />
+          <PortfolioModal 
+            item={selectedPortfolioItem} 
+            isOpen={!!selectedPortfolioItem} 
+            onClose={() => setSelectedPortfolioItem(null)}
+            handleCTAClick={handleCTAClick}
+          />
+          <QuickContactModal 
+            isOpen={showQuickContactModal} 
+            onClose={() => setShowQuickContactModal(false)}
+            handleCTAClick={handleCTAClick}
+          />
+          
+          {/* Floating Action Button */}
+          <button
+            onClick={() => handleCTAClick('quick-contact')}
+            className="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors z-40 hover:scale-110 transform"
+            aria-label="Quick Contact"
+          >
+            <MessageCircle className="w-6 h-6" />
+          </button>
+
     </div>
   );
 };

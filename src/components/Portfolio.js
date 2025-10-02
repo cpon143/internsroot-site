@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Award, ArrowRight, TrendingUp, Eye, ExternalLink, Shield, CheckCircle } from "lucide-react";
 
 const portfolioItems = [
@@ -36,15 +35,7 @@ const portfolioItems = [
   }
 ];
 
-const Portfolio = () => {
-  const [selectedPortfolioItem, setSelectedPortfolioItem] = useState(null);
-
-  // Reusable CTA handler (for buttons/links)
-  const handleCTAClick = (action) => {
-    console.log("CTA clicked:", action);
-    // You can replace with navigation, modal, or analytics event
-  };
-
+const Portfolio = ({ handleCTAClick }) => {
   return (
     <section id="portfolio" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Background Elements */}
@@ -96,7 +87,7 @@ const Portfolio = () => {
             <div 
               key={index} 
               className="group bg-white/90 backdrop-blur-sm rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer transform hover:-translate-y-2" 
-              onClick={() => setSelectedPortfolioItem(item)}
+              onClick={() => handleCTAClick && handleCTAClick('view-portfolio-item', item)}
             >
               <div className="relative overflow-hidden">
                 <img 

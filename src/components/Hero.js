@@ -14,12 +14,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 
-// Dummy CTA handler (replace with your actual logic)
-const handleCTAClick = (action) => {
-  console.log(`CTA clicked: ${action}`);
-};
-
-const Hero = () => (
+const Hero = ({ handleCTAClick }) => (
   <section
     id="home"
     className="pt-16 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 min-h-screen flex items-center relative overflow-hidden"
@@ -65,7 +60,7 @@ const Hero = () => (
 
           <div className="flex flex-col sm:flex-row gap-6 mb-12">
             <button
-              onClick={() => handleCTAClick("get-proposal")}
+              onClick={() => handleCTAClick && handleCTAClick("get-proposal")}
               className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-2xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-lg font-semibold flex items-center justify-center shadow-2xl hover:shadow-blue-500/25 transform hover:-translate-y-1"
             >
               <Zap className="mr-3 w-5 h-5 group-hover:animate-pulse" />
@@ -73,7 +68,7 @@ const Hero = () => (
               <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button
-              onClick={() => handleCTAClick("view-portfolio")}
+              onClick={() => handleCTAClick && handleCTAClick("view-portfolio")}
               className="group border-2 border-gray-300 text-gray-700 px-10 py-5 rounded-2xl hover:border-blue-600 hover:text-blue-600 transition-all duration-300 text-lg font-semibold flex items-center justify-center backdrop-blur bg-white/80"
             >
               <Eye className="mr-3 w-5 h-5" />

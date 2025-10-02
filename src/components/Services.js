@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Code,
   Smartphone,
@@ -88,9 +88,7 @@ const services = [
   },
 ];
 
-const Services = () => {
-  const [selectedService, setSelectedService] = useState(null);
-
+const Services = ({ handleCTAClick }) => {
   return (
     <section
       id="services"
@@ -143,7 +141,7 @@ const Services = () => {
             <div
               key={index}
               className="group bg-white/80 backdrop-blur-sm rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 p-8 border border-white/50 cursor-pointer hover:-translate-y-2 relative overflow-hidden"
-              onClick={() => setSelectedService(service)}
+                            onClick={() => handleCTAClick && handleCTAClick('view-service', service)}
             >
               {/* Premium badge for featured services */}
               {index === 0 && (
