@@ -8,7 +8,7 @@ const testimonials = [
     position: "CEO & Founder",
     rating: 5,
     text: "Exceptional work! Our website's conversion rate increased by 150% after the redesign. The attention to detail and SEO optimization was outstanding. The team delivered beyond our expectations.",
-    image: "https://scontent.fbom57-1.fna.fbcdn.net/v/t39.30808-6/217041362_2992897564370704_7308737798036567047_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=SKcXu2lHTfcQ7kNvwHgwpqP&_nc_oc=AdlqEN3-MbwxS14Ai3Ultw5V34OXKBLk85pqd_3SzZlcYcnPjI74P8dR_SRsyDjn84Y&_nc_zt=23&_nc_ht=scontent.fbom57-1.fna&_nc_gid=CAmZaLtEt1_Ew7Eee8dgHQ&oh=00_AffuqJmZcEpvQl90VY27lTQyE5Ifpl-_oWSYyp__IcMleQ&oe=68E4DFE2",
+    image: "https://media.licdn.com/dms/image/v2/D4D03AQFSQprVR0N4wQ/profile-displayphoto-scale_400_400/B4DZxducjfHcAg-/0/1771098988233?e=1773878400&v=beta&t=fbtfAXLd65WsFhQuotaMYw_US-fvUvf_3qhRmIqlujo",
     metric: "+150% conversion rate",
     category: "Website Development"
   },
